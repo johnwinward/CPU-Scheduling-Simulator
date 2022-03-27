@@ -33,6 +33,22 @@ public class FCFS {
     }
 
     public void incrementClock(){
+        if (clock == -1){
+            PCB p = arrivalQueue.remove();
+            clock = p.getArrivalTime();
+            readyQueue.add(p);
+            currentProcess = p;
+        }
+        print();
+        if(!readyQueue.isEmpty()){
+            clock += readyQueue.peek().getBurstTime();
+            readyQueue.remove();
+        }
+
+        while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock)
+            readyQueue.add(arrivalQueue.remove());
+        if(arrivalQueue.isEmpty() && readyQueue.isEmpty())
+            done = true;
         /*if(clock == -1){
             currentProcess = arrivalQueue.remove();
             clock = currentProcess.getArrivalTime();
