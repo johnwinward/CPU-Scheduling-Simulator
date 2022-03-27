@@ -43,34 +43,15 @@ public class FCFS {
             clock += readyQueue.peek().getBurstTime();
             readyQueue.remove();
         }
-
         while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock)
             readyQueue.add(arrivalQueue.remove());
+        if(readyQueue.isEmpty() && !arrivalQueue.isEmpty()){
+            clock += arrivalQueue.peek().getArrivalTime();
+            readyQueue.add(arrivalQueue.remove());
+        }
         if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
             done = true;
         }
         print();
-
-        /*if(clock == -1){
-            currentProcess = arrivalQueue.remove();
-            clock = currentProcess.getArrivalTime();
-        }
-
-        System.out.println(clock);
-        printRQ();
-        while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock) {
-            readyQueue.add(arrivalQueue.remove());
-        }
-        if(!arrivalQueue.isEmpty()){
-            clock += currentProcess.getBurstTime();
-            if(!readyQueue.isEmpty()){
-                currentProcess = readyQueue.remove();
-            }
-            else{
-                clock = arrivalQueue.peek().getArrivalTime();
-            }
-        }
-        else
-            done = true; */
     }
 }

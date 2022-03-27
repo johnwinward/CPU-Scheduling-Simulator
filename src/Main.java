@@ -13,6 +13,9 @@ public class Main {
         fcfs.addProcess(pD);
         fcfs.addProcess(pE);
 
+/*        for(int i = 0; i < 100; i++)
+            fcfs.addProcess(new PCB()); */
+
         while(!fcfs.isDone()){
             fcfs.incrementClock();
         }
