@@ -39,7 +39,6 @@ public class FCFS {
             readyQueue.add(p);
             currentProcess = p;
         }
-        print();
         if(!readyQueue.isEmpty()){
             clock += readyQueue.peek().getBurstTime();
             readyQueue.remove();
@@ -47,8 +46,11 @@ public class FCFS {
 
         while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock)
             readyQueue.add(arrivalQueue.remove());
-        if(arrivalQueue.isEmpty() && readyQueue.isEmpty())
+        if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
             done = true;
+        }
+        print();
+
         /*if(clock == -1){
             currentProcess = arrivalQueue.remove();
             clock = currentProcess.getArrivalTime();

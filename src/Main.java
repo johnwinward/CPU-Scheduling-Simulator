@@ -4,7 +4,7 @@ public class Main {
         PCB pB = new PCB("Process B", 2, 2, 2);
         PCB pC = new PCB("Process C", 3, 14, 3);
         PCB pD = new PCB("Process D", 4, 10, 6);
-        PCB pE = new PCB("Process E", 5, 12, 10);
+        PCB pE = new PCB("Process E", 5, 2, 10);
 
         FCFS fcfs = new FCFS();
         fcfs.addProcess(pA);
