@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args){
+        //Test processes from midterm exam
         PCB pA = new PCB("Process A", 1, 15, 0);
         PCB pB = new PCB("Process B", 2, 2, 2);
         PCB pC = new PCB("Process C", 3, 14, 3);
@@ -13,13 +14,10 @@ public class Main {
         fcfs.addProcess(pD);
         fcfs.addProcess(pE);
 
+        //generate random processes
 /*        for(int i = 0; i < 100; i++)
             fcfs.addProcess(new PCB()); */
 
-        while(!fcfs.isDone()){
-            fcfs.incrementClock();
-        }
-
-        //Instantiate Scheduling Objects
+        fcfs.run();
     }
 }

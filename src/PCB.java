@@ -1,5 +1,4 @@
 //Process Control Block
-
 import java.util.Random;
 
 public class PCB {
@@ -13,20 +12,24 @@ public class PCB {
     //Random Number Generator
     private static Random r = new Random();
 
-    //Instance variables
     private String name;
     private int processID;
     private int burstTime;
     private int arrivalTime;
+    private int completionTime;
+    private int responseTime;
+    private int turnAroundTime;
     private int priority;
 
-    //Default Constructor
     PCB(){
         name = "Process " + n;
         processID = n++;
         burstTime = r.nextInt(0, MAX_BURST_TIME);
         arrivalTime = r.nextInt(MAX_SIM_TIME);
-        priority = 0; //priority will be assigned by scheduling algorithm
+        completionTime = -1;
+        responseTime = -1;
+        turnAroundTime = -1;
+        priority = -1; //priority can be assigned by scheduling algorithm
     }
 
     //Manually Assigned Constructor
@@ -35,7 +38,14 @@ public class PCB {
         this.processID = processID;
         this.burstTime = burstTime;
         this.arrivalTime = arrivalTime;
+        completionTime = -1;
+        responseTime = -1;
+        turnAroundTime = -1;
         priority = 0;
+    }
+
+    public void reset(){
+        n = 0;
     }
 
     public String getName() {
@@ -86,6 +96,33 @@ public class PCB {
                 ", burstTime=" + burstTime +
                 ", arrivalTime=" + arrivalTime +
                 ", priority=" + priority +
+                ", responseTime=" + responseTime +
+                ", turnAroundTime=" + turnAroundTime +
+                ", completionTime=" + completionTime +
                 '}';
+    }
+
+    public int getResponseTime() {
+        return responseTime;
+    }
+
+    public void setResponseTime(int responseTime) {
+        this.responseTime = responseTime;
+    }
+
+    public int getTurnAroundTime() {
+        return turnAroundTime;
+    }
+
+    public void setTurnAroundTime(int turnAroundTime) {
+        this.turnAroundTime = turnAroundTime;
+    }
+
+    public int getCompletionTime() {
+        return completionTime;
+    }
+
+    public void setCompletionTime(int completionTime) {
+        this.completionTime = completionTime;
     }
 }

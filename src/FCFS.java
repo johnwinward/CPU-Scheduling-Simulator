@@ -12,7 +12,6 @@ public class FCFS {
     }
 
     boolean done;
-    private PCB currentProcess;
 
     public FCFS() {
         ArrivalTimeComparator comparator = new ArrivalTimeComparator();
@@ -37,7 +36,6 @@ public class FCFS {
             PCB p = arrivalQueue.remove();
             clock = p.getArrivalTime();
             readyQueue.add(p);
-            currentProcess = p;
         }
         if(!readyQueue.isEmpty()){
             clock += readyQueue.peek().getBurstTime();
@@ -53,5 +51,10 @@ public class FCFS {
             done = true;
         }
         print();
+    }
+
+    public void run() {
+        while (!done)
+            incrementClock();
     }
 }
