@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class FCFS {
     private PriorityQueue<PCB> arrivalQueue;
     private LinkedList<PCB> readyQueue;
+    private Files files;
     private int clock;
 
     public boolean isDone() {
@@ -17,6 +17,7 @@ public class FCFS {
         ArrivalTimeComparator comparator = new ArrivalTimeComparator();
         arrivalQueue = new PriorityQueue<PCB>(comparator);
         readyQueue = new LinkedList<PCB>();
+        files = new Files("FCFS");
         clock = -1;
         done = false;
     }
@@ -41,7 +42,7 @@ public class FCFS {
             readyQueue.peek().setResponseTime(clock - readyQueue.peek().getArrivalTime());
             clock += readyQueue.peek().getBurstTime();
             readyQueue.peek().setCompletionTime(clock);
-            readyQueue.remove();
+            files.writePCB(readyQueue.remove());
             //Add PCB to file (csv)
             //Calculate turn around time at some point
         }
@@ -54,11 +55,12 @@ public class FCFS {
         if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
             done = true;
         }
-        print();
+        //print();
     }
 
     public void run() {
         while (!done)
             incrementClock();
+        files.close();
     }
 }

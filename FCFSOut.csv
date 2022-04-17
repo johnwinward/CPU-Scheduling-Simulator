@@ -1,0 +1,6 @@
+"Process Name","Process ID","Burst Time","Arrival Time","Response Time","Turn Around Time","Completion Time","Priority Value"
+"Process A","1","15","0","0","15","15","0"
+"Process B","2","2","2","13","15","17","0"
+"Process C","3","14","3","14","28","31","0"
+"Process D","4","10","6","25","35","41","0"
+"Process E","5","2","10","31","33","43","0"

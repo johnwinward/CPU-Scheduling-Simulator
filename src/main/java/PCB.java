@@ -88,7 +88,7 @@ public class PCB {
         this.priority = priority;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "PCB{" +
                 "name='" + name + '\'' +
@@ -100,7 +100,7 @@ public class PCB {
                 ", turnAroundTime=" + turnAroundTime +
                 ", completionTime=" + completionTime +
                 '}';
-    }
+    } */
 
     public int getResponseTime() {
         return responseTime;
