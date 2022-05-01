@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args){
+        //Algorithms
+        FCFS fcfs = new FCFS();
+        SJF sjf = new SJF();
+
         //Test processes from midterm exam
         PCB pA = new PCB("Process A", 1, 15, 0);
         PCB pB = new PCB("Process B", 2, 2, 2);
@@ -7,14 +11,12 @@ public class Main {
         PCB pD = new PCB("Process D", 4, 10, 6);
         PCB pE = new PCB("Process E", 5, 2, 10);
 
-        FCFS fcfs = new FCFS();
         fcfs.addProcess(pA);
         fcfs.addProcess(pB);
         fcfs.addProcess(pC);
         fcfs.addProcess(pD);
         fcfs.addProcess(pE);
 
-        SJF sjf = new SJF();
         sjf.addProcess(pA);
         sjf.addProcess(pB);
         sjf.addProcess(pC);
@@ -22,8 +24,11 @@ public class Main {
         sjf.addProcess(pE);
 
         //generate random processes
-/*        for(int i = 0; i < 5; i++)
-            fcfs.addProcess(new PCB()); */
+/*        for(int i = 0; i < 5; i++){
+            PCB process = new PCB();
+            fcfs.addProcess(process);
+            sjf.addProcess(process);
+        } */
 
         fcfs.run();
         sjf.run();

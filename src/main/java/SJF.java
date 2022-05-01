@@ -29,7 +29,7 @@ public class SJF {
 
     public void incrementClock(){
         if(clock == -1 && !arrivalQueue.isEmpty()){
-            clock = 0;
+            clock = arrivalQueue.peek().getArrivalTime();
             clock += arrivalQueue.peek().getBurstTime();
             arrivalQueue.peek().setCompletionTime(clock);
             arrivalQueue.peek().setResponseTime(0);

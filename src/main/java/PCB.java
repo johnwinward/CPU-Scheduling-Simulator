@@ -4,7 +4,7 @@ import java.util.Random;
 public class PCB {
     //Constants
     private static final int MAX_BURST_TIME = 10;
-    private static final int MAX_SIM_TIME = 100;
+    private static final int MAX_SIM_TIME = 10;
 
     //Process Count (will increase with each instance created)
     private static int n = 0;
