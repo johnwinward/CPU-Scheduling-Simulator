@@ -17,29 +17,31 @@ public class Files {
         //todo: instantiate input file
 
         //Write title row
-        String[] row1 = new String[8];
-        row1[0] = "Process Name";
-        row1[1] = "Process ID";
-        row1[2] = "Burst Time";
-        row1[3] = "Arrival Time";
-        row1[4] = "Response Time";
-        row1[5] = "Turn Around Time";
-        row1[6] = "Completion Time";
-        row1[7] = "Priority Value";
+        String[] row1 = new String[9];
+        row1[0] = "Name";
+        row1[1] = "PID";
+        row1[2] = "AT";
+        row1[3] = "BT";
+        row1[4] = "CT";
+        row1[5] = "TAT";
+        row1[6] = "WT";
+        row1[7] = "RT";
+        row1[8] = "Priority";
 
         out.writeNext(row1);
     }
 
     public void writePCB(PCB process){
-        String[] row = new String[8];
+        String[] row = new String[9];
         row[0] = process.getName();
         row[1] = "" + process.getProcessID();
-        row[2] = "" + process.getBurstTime();
-        row[3] = "" + process.getArrivalTime();
-        row[4] = "" + process.getResponseTime();
+        row[2] = "" + process.getArrivalTime();
+        row[3] = "" + process.getBurstTime();
+        row[4] = "" + process.getCompletionTime();
         row[5] = "" + (process.getCompletionTime() - process.getArrivalTime());
-        row[6] = "" + process.getCompletionTime();
-        row[7] = "" + process.getPriority();
+        row[6] = "" + process.getWaitTime();
+        row[7] = "" + process.getResponseTime();
+        row[8] = "" + process.getPriority();
 
         out.writeNext(row);
     }

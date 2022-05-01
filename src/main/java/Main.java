@@ -15,7 +15,7 @@ public class Main {
         fcfs.addProcess(pE);
 
         //generate random processes
-/*        for(int i = 0; i < 100; i++)
+/*        for(int i = 0; i < 5; i++)
             fcfs.addProcess(new PCB()); */
 
         fcfs.run();

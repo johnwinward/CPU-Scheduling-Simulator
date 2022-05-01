@@ -40,11 +40,10 @@ public class FCFS {
         }
         if(!readyQueue.isEmpty()){
             readyQueue.peek().setResponseTime(clock - readyQueue.peek().getArrivalTime());
+            readyQueue.peek().setWaitTime(clock - readyQueue.peek().getArrivalTime());
             clock += readyQueue.peek().getBurstTime();
             readyQueue.peek().setCompletionTime(clock);
             files.writePCB(readyQueue.remove());
-            //Add PCB to file (csv)
-            //Calculate turn around time at some point
         }
         while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock)
             readyQueue.add(arrivalQueue.remove());
