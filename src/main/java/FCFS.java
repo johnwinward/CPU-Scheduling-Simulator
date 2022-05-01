@@ -6,11 +6,6 @@ public class FCFS {
     private LinkedList<PCB> readyQueue;
     private Files files;
     private int clock;
-
-    public boolean isDone() {
-        return done;
-    }
-
     boolean done;
 
     public FCFS() {
@@ -61,5 +56,9 @@ public class FCFS {
         while (!done)
             incrementClock();
         files.close();
+    }
+
+    public boolean isDone() {
+        return done;
     }
 }

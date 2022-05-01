@@ -14,10 +14,18 @@ public class Main {
         fcfs.addProcess(pD);
         fcfs.addProcess(pE);
 
+        SJF sjf = new SJF();
+        sjf.addProcess(pA);
+        sjf.addProcess(pB);
+        sjf.addProcess(pC);
+        sjf.addProcess(pD);
+        sjf.addProcess(pE);
+
         //generate random processes
 /*        for(int i = 0; i < 5; i++)
             fcfs.addProcess(new PCB()); */
 
         fcfs.run();
+        sjf.run();
     }
 }
