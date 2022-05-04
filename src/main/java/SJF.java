@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class SJF {
+public class SJF implements Scheduler{
     private PriorityQueue<PCB> arrivalQueue;
     private PriorityQueue<PCB> readyQueue;
     private Files files;
@@ -58,6 +58,19 @@ public class SJF {
     public void run(){
         while (!done)
             incrementClock();
+    }
+
+    public void reset(){
+        ArrivalTimeComparator aComparator = new ArrivalTimeComparator();
+        BurstTimeComparator bComparator = new BurstTimeComparator();
+        arrivalQueue = new PriorityQueue<PCB>(aComparator);
+        readyQueue = new PriorityQueue<PCB>(bComparator);
+        clock = -1;
+        done = false;
+        files.newTrial();
+    }
+
+    public void finish(){
         files.close();
     }
 }

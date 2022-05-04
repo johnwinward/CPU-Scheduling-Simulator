@@ -46,6 +46,10 @@ public class Files {
         out.writeNext(row);
     }
 
+    public void newTrial(){ //Trials are separated by an empty row in the spreadsheet
+        out.writeNext(new String[1]);
+    }
+
     public void close(){
         try {
             out.close();

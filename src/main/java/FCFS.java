@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
-public class FCFS {
+public class FCFS implements Scheduler{
     private PriorityQueue<PCB> arrivalQueue;
     private LinkedList<PCB> readyQueue;
     private Files files;
@@ -17,14 +17,8 @@ public class FCFS {
         done = false;
     }
 
-    public void addProcess(PCB process){
+   public void addProcess(PCB process){
         arrivalQueue.add(process);
-    }
-
-    public void print(){
-        System.out.println("Ready Queue: " + readyQueue);
-        System.out.println("Arrival Queue: " + arrivalQueue);
-        System.out.println("Clock: " + clock + "\n\n");
     }
 
     public void incrementClock(){
@@ -49,16 +43,23 @@ public class FCFS {
         if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
             done = true;
         }
-        //print();
     }
 
     public void run() {
         while (!done)
             incrementClock();
-        files.close();
     }
 
-    public boolean isDone() {
-        return done;
+    public void reset(){
+        ArrivalTimeComparator comparator = new ArrivalTimeComparator();
+        arrivalQueue = new PriorityQueue<PCB>(comparator);
+        readyQueue = new LinkedList<PCB>();
+        clock = -1;
+        done = false;
+        files.newTrial();
+    }
+
+    public void finish(){
+        files.close();
     }
 }
