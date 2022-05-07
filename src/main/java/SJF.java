@@ -1,3 +1,5 @@
+//Shortest Job First CPU Scheduling Algorithm
+
 import java.util.PriorityQueue;
 
 public class SJF implements Scheduler{
@@ -56,6 +58,8 @@ public class SJF implements Scheduler{
     }
 
     public void run(){
+        for(PCB process : arrivalQueue)
+            process.reset();
         while (!done)
             incrementClock();
     }

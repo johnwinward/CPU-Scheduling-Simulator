@@ -1,3 +1,5 @@
+//First Come, First Served CPU Scheduling Algorithm
+
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
@@ -46,6 +48,8 @@ public class FCFS implements Scheduler{
     }
 
     public void run() {
+        for(PCB process : arrivalQueue)
+            process.reset();
         while (!done)
             incrementClock();
     }

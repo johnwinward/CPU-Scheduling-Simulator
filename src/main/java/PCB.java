@@ -16,6 +16,8 @@ public class PCB {
     private int processID;
     private int burstTime;
     private int arrivalTime;
+    private int burstTimeReset;
+    private int arrivalTimeReset;
     private int completionTime;
     private int responseTime;
     private int waitTime;
@@ -27,6 +29,8 @@ public class PCB {
         processID = n++;
         burstTime = r.nextInt(0, MAX_BURST_TIME);
         arrivalTime = r.nextInt(MAX_SIM_TIME);
+        burstTimeReset = burstTime;
+        arrivalTimeReset = arrivalTime;
         completionTime = -1;
         responseTime = -1;
         waitTime = -1;
@@ -40,6 +44,8 @@ public class PCB {
         this.processID = processID;
         this.burstTime = burstTime;
         this.arrivalTime = arrivalTime;
+        burstTimeReset = burstTime;
+        arrivalTimeReset = arrivalTime;
         completionTime = -1;
         responseTime = -1;
         turnAroundTime = -1;
@@ -47,7 +53,13 @@ public class PCB {
     }
 
     public void reset(){
-        n = 0;
+        burstTime = burstTimeReset;
+        arrivalTime = arrivalTimeReset;
+        completionTime = -1;
+        responseTime = -1;
+        waitTime = -1;
+        turnAroundTime = -1;
+        priority = -1;
     }
 
     public String getName() {
@@ -89,20 +101,6 @@ public class PCB {
     public void setPriority(int priority) {
         this.priority = priority;
     }
-
-/*    @Override
-    public String toString() {
-        return "PCB{" +
-                "name='" + name + '\'' +
-                ", processID=" + processID +
-                ", burstTime=" + burstTime +
-                ", arrivalTime=" + arrivalTime +
-                ", priority=" + priority +
-                ", responseTime=" + responseTime +
-                ", turnAroundTime=" + turnAroundTime +
-                ", completionTime=" + completionTime +
-                '}';
-    } */
 
     public int getResponseTime() {
         return responseTime;
