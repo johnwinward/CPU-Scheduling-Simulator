@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
-public class RR {
+public class RR implements Scheduler{
     private PriorityQueue<PCB> arrivalQueue;
     private LinkedList<PCB> readyQueue;
     private HashMap<Integer, Integer> burstTimes;
