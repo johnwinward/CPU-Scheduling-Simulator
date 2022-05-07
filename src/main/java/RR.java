@@ -10,7 +10,6 @@ public class RR implements Scheduler{
     private HashMap<Integer, Integer> burstTimes;
     private Files files;
     private int clock;
-    private int preempts;
     private int timeQ;
     boolean done;
 
@@ -21,7 +20,6 @@ public class RR implements Scheduler{
         burstTimes = new HashMap<Integer, Integer>();
         files = new Files("RR");
         clock = -1;
-        preempts = 0;
         timeQ = 5;
         done = false;
     }
@@ -80,7 +78,6 @@ public class RR implements Scheduler{
         arrivalQueue = new PriorityQueue<PCB>(comparator);
         readyQueue = new LinkedList<PCB>();
         clock = -1;
-        preempts = 0;
         done = false;
         files.newTrial();
     }
