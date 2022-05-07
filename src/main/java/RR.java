@@ -61,6 +61,9 @@ public class RR implements Scheduler{
                 readyQueue.add(p);
             }
         }
+        if(readyQueue.isEmpty() && !arrivalQueue.isEmpty() && clock < arrivalQueue.peek().getArrivalTime()){
+            clock = arrivalQueue.peek().getArrivalTime();
+        }
         if(readyQueue.isEmpty() && arrivalQueue.isEmpty()){
             done = true;
         }

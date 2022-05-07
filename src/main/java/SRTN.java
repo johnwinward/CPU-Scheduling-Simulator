@@ -28,6 +28,7 @@ public class SRTN implements Scheduler{
         readyQueue = new PriorityQueue<PCB>(bComparator);
         clock = -1;
         done = false;
+        files.newTrial();
     }
 
     public void finish(){
@@ -93,6 +94,10 @@ public class SRTN implements Scheduler{
             readyQueue.peek().setBurstTime(burstTimes.get(readyQueue.peek().getProcessID()));
             files.writePCB(readyQueue.remove());
             addWaitTime(t);
+        }
+        if(readyQueue.isEmpty() && !arrivalQueue.isEmpty()){
+            clock = arrivalQueue.peek().getArrivalTime();
+            readyQueue.add(arrivalQueue.remove());
         }
         if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
             done = true;

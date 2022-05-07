@@ -27,7 +27,7 @@ public class PCB {
     PCB(){
         name = "Process " + n;
         processID = n++;
-        burstTime = r.nextInt(0, MAX_BURST_TIME);
+        burstTime = r.nextInt(1, MAX_BURST_TIME);
         arrivalTime = r.nextInt(MAX_SIM_TIME);
         burstTimeReset = burstTime;
         arrivalTimeReset = arrivalTime;

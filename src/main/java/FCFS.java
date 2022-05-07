@@ -39,7 +39,7 @@ public class FCFS implements Scheduler{
         while(!arrivalQueue.isEmpty() && arrivalQueue.peek().getArrivalTime() <= clock)
             readyQueue.add(arrivalQueue.remove());
         if(readyQueue.isEmpty() && !arrivalQueue.isEmpty()){
-            clock += arrivalQueue.peek().getArrivalTime();
+            clock = arrivalQueue.peek().getArrivalTime();
             readyQueue.add(arrivalQueue.remove());
         }
         if(arrivalQueue.isEmpty() && readyQueue.isEmpty()){
