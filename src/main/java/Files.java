@@ -48,6 +48,13 @@ public class Files {
         out.writeNext(row);
     }
 
+    public void writeClock(int c){
+        String[] row = new String[2];
+        row[0] = "Clock: ";
+        row[1] = "" + c;
+        out.writeNext(row);
+    }
+
     public void newTrial(){ //Trials are separated by an empty row in the spreadsheet
         out.writeNext(new String[1]);
     }

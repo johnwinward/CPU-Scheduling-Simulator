@@ -7,7 +7,7 @@ public class SJF implements Scheduler{
     private PriorityQueue<PCB> readyQueue;
     private Files files;
     private int clock;
-    boolean done;
+    private boolean done;
 
     public SJF() {
         ArrivalTimeComparator aComparator = new ArrivalTimeComparator();
@@ -62,6 +62,7 @@ public class SJF implements Scheduler{
             process.reset();
         while (!done)
             incrementClock();
+        files.writeClock(clock);
     }
 
     public void reset(){

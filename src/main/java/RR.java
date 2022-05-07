@@ -11,7 +11,7 @@ public class RR implements Scheduler{
     private Files files;
     private int clock;
     private int timeQ;
-    boolean done;
+    private boolean done;
 
     public RR() {
         ArrivalTimeComparator comparator = new ArrivalTimeComparator();
@@ -71,6 +71,7 @@ public class RR implements Scheduler{
             process.reset();
         while (!done)
             incrementClock();
+        files.writeClock(clock);
     }
 
     public void reset(){

@@ -8,7 +8,7 @@ public class FCFS implements Scheduler{
     private LinkedList<PCB> readyQueue;
     private Files files;
     private int clock;
-    boolean done;
+    private boolean done;
 
     public FCFS() {
         ArrivalTimeComparator comparator = new ArrivalTimeComparator();
@@ -52,6 +52,7 @@ public class FCFS implements Scheduler{
             process.reset();
         while (!done)
             incrementClock();
+        files.writeClock(clock);
     }
 
     public void reset(){

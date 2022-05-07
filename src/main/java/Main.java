@@ -18,6 +18,7 @@ public class Main {
         FCFS fcfs = new FCFS();
         SJF sjf = new SJF();
         RR rr = new RR();
+        SRTN srtn = new SRTN();
 
 /*        System.out.print("Enter the number of trials for each scheduling algorithm: ");
         n = input.nextInt();
@@ -49,6 +50,12 @@ public class Main {
         rr.addProcess(pD);
         rr.addProcess(pE);
 
+        srtn.addProcess(pA);
+        srtn.addProcess(pB);
+        srtn.addProcess(pC);
+        srtn.addProcess(pD);
+        srtn.addProcess(pE);
+
         fcfs.run();
         fcfs.finish();
 
@@ -57,6 +64,9 @@ public class Main {
 
         rr.run();
         rr.finish();
+
+        srtn.run();
+        srtn.finish();
 
         //generate random processes
 /*        while(n > 0){
