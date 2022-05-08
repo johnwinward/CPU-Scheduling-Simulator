@@ -19,7 +19,7 @@ public class Files {
         //todo: instantiate input file
 
         //Write title row
-        String[] row1 = new String[9];
+        String[] row1 = new String[8];
         row1[0] = "Name";
         row1[1] = "PID";
         row1[2] = "AT";
@@ -28,13 +28,12 @@ public class Files {
         row1[5] = "TAT";
         row1[6] = "WT";
         row1[7] = "RT";
-        row1[8] = "Priority";
 
         out.writeNext(row1);
     }
 
     public void writePCB(PCB process){
-        String[] row = new String[9];
+        String[] row = new String[8];
         row[0] = process.getName();
         row[1] = "" + process.getProcessID();
         row[2] = "" + process.getArrivalTime();
@@ -43,7 +42,6 @@ public class Files {
         row[5] = "" + (process.getCompletionTime() - process.getArrivalTime());
         row[6] = "" + process.getWaitTime();
         row[7] = "" + process.getResponseTime();
-        row[8] = "" + process.getPriority();
 
         out.writeNext(row);
     }
