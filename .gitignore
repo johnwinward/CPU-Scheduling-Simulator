@@ -1,5 +1,7 @@
 /.idea/
 /target/
+/META-INF/
+/out/
 *.csv
 *.iml
 pom.xml
